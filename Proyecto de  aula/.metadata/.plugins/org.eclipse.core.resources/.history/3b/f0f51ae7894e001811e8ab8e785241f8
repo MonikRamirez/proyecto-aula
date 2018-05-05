@@ -1,0 +1,42 @@
+package application;
+
+import javafx.application.Application;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
+
+public class GeneradorEntorno extends Application{
+
+private Tablero tableroVirtual = new Tablero();
+private Label[][] tableroGrafico = new Label [15][15];
+public void start(Stage primaryStage) throws Exception {
+	// TODO Auto-generated method stub
+	
+}
+public GeneradorEntorno (){
+//setDefauldCloseOperation(Application.EXIT_ON_CLOSE);
+//setSize(600,600);
+//SetVisible(true);
+
+GenerarLaberintoGrafico();
+}
+private void GenerarLaberintoGrafico(){
+for(int i=0; i < tableroVirtual.DevolverCantidadFilasTablero(); i ++){
+for(int j =0; j < tableroVirtual.DevolverCantidadColumnasTablero(); j ++){
+
+tableroGrafico[i][j] =new Label();
+add ( tableroGrafico[i][j]);
+tableroGrafico[i][j].setIcon(new imageIcon("Graficos/Laberinto/laberinto GIF/"+tableroVirtual.DevolverCodigoImagenMatriz(i,j)+".gif"));  
+}
+}
+for(int i=0 ;i< tableroVirtual.DevolverCantidadFilasTablero(); i++){
+for(int j=0 ;j< tableroVirtual.DevolverCantidadColumnasTablero(); j++){
+
+tableroGrafico[i][j].setBounds(i * tableroVirtual.DevolverLargoImagenes(),j*tableroVirtual.DevolverAlturaImagenes(), tableroVirtual.DevolverLargoImagenes(), tableroVirtual.DevolverAlturaImagenes()); 
+
+tableroGrafico[i][j].validate();
+}
+}
+}
+@Override
+
+}

@@ -25,8 +25,10 @@ public class Tablero {
 
 	public int DevolverLargoImagenes() {
 		return largoImagenes;
+		
 	}
 
+	
 	public int DevolverAlturaImagenes() {
 		return AltoImagenes;
 	}

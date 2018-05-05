@@ -1,0 +1,93 @@
+package application;
+
+import java.io.File;
+import java.util.ArrayList;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+	Tablero tableroVirtual = new Tablero();
+
+	public static void main(String[] args) {
+		Application.launch(args);
+
+	}
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		Pane pane = new Pane();
+
+		ArrayList<ImageView> ims = new ArrayList<>();
+		double aux = 0;
+		double aux2 = 0;
+		Image fondo = new Image("FONDO3.gif", 800, 800, true, true);
+		ImageView vista = new ImageView(fondo);
+		pane.getChildren().addAll(vista);
+		vista.setX(aux2);
+		vista.setY(aux);
+
+
+		for (int i = 0; i < tableroVirtual.DevolverCantidadFilasTablero(); i++) {
+			for (int j = 0; j < tableroVirtual.DevolverCantidadColumnasTablero(); j++) {
+				if (tableroVirtual.DevolverCodigoImagenMatriz(i, j).equals("")) {
+
+					aux2 += 40;
+
+				} else if (tableroVirtual.DevolverCodigoImagenMatriz(i, j).equals("H")) {
+					Image im = new Image("H.gif", 40, 40, true, true);
+					ImageView vie = new ImageView(im);
+					vie.setX(aux2);
+					vie.setY(aux);
+					aux2 += 40;
+					ims.add(vie);
+				} else if (tableroVirtual.DevolverCodigoImagenMatriz(i, j).equals("P")) {
+					Image im = new Image("P.gif", 80, 80, true, true);
+					ImageView vie = new ImageView(im);
+					vie.setX(aux2);
+					vie.setY(aux);
+					aux2 += 40;
+					ims.add(vie);
+				} else if (tableroVirtual.DevolverCodigoImagenMatriz(i, j).equals("B")) {
+					Image im = new Image("B.gif", 15, 15, true, true);
+					ImageView vie = new ImageView(im);
+					vie.setX(aux2);
+					vie.setY(aux);
+					aux2 += 40;
+					ims.add(vie);
+				} else {
+					String a = tableroVirtual.DevolverCodigoImagenMatriz(i, j).toUpperCase() + ".png";
+					Image im = new Image(a, 40, 40, true, true);
+					ImageView vie = new ImageView(im);
+					vie.setX(aux2);
+					vie.setY(aux);
+					aux2 += 40;
+					ims.add(vie);
+				}
+			}
+			aux2 = 0;
+			aux += 40;
+		}
+
+		String path = "C:/Users/lenovo/Desktop/Proyecto de  aula/Moal/src/music.mp3";
+		Media media = new Media(new File(path).toURI().toString());
+		MediaPlayer mediaPlayer = new MediaPlayer(media);
+		mediaPlayer.setAutoPlay(true);
+		MediaView mediaView = new MediaView(mediaPlayer);
+		
+		pane.getChildren().addAll(ims);
+		Scene scene = new Scene(pane, 600, 600);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+
+	}
+
+}

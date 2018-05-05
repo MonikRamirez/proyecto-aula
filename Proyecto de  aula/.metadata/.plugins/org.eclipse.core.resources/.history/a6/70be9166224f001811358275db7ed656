@@ -1,0 +1,69 @@
+package application;
+	
+import java.util.ArrayList;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+
+
+
+public class Main extends Application {
+	 Tablero tableroVirtual = new Tablero();
+	 
+	 public static void main(String[] args) {
+			Application.launch(args);
+
+		}
+
+		@Override
+		public void start(Stage primaryStage) throws Exception {
+			Pane pane=new Pane();
+
+				
+
+			ArrayList<ImageView>ims=new ArrayList<>();
+			double aux=0;
+			double aux2=0;
+			for (int i = 0; i < tableroVirtual.DevolverCantidadFilasTablero(); i++) {
+				for (int j = 0; j < tableroVirtual.DevolverCantidadColumnasTablero(); j++) {
+					Image im=new Image(tableroVirtual.DevolverCodigoImagenMatriz(i, j) + ".gif",40,40,true,true);
+					ImageView vie=new ImageView(im);
+					vie.setX(aux2);
+					vie.setY(aux);
+					aux2+=40;
+					ims.add(vie);
+				}
+				aux2=0;
+				aux+=40;
+			}
+//			double num=160;
+//			double num2=0;
+//			for (int i = 0; i <5; i++) {
+//				for (int j = 0; j < 10; j++) {
+//					Image im=new Image("giphy.gif",32,32,true,true);
+//					ImageView vie=new ImageView(im);
+//					vie.setX(num2);
+//					vie.setY(num);
+//					num2+=32;
+//					ims.add(vie);
+//				}
+//				num2=0;
+//				num+=32;
+//			}
+
+			pane.getChildren().addAll(ims);
+
+	/////////////////////////////////////////////////////////////////////////////////////////		
+
+
+			Scene scene= new Scene(pane,320,320, Color.BLACK);
+			primaryStage.setScene(scene);
+			primaryStage.show();
+
+		}
+
+	}

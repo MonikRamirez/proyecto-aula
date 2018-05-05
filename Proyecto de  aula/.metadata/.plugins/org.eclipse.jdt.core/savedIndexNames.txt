@@ -1,0 +1,4 @@
+INDEX VERSION 1.130+C:\Users\lenovo\Desktop\Proyecto de  aula\.metadata\.plugins\org.eclipse.jdt.core
+1763252646.index
+3584623165.index
+3837299063.index

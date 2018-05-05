@@ -1,0 +1,52 @@
+package application;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+
+public class GeneradorEntorno extends Application {
+
+	private Tablero tableroVirtual = new Tablero();
+	private Label[][] tableroGrafico = new Label[15][15];
+
+	public void start(Stage primaryStage) {
+
+		GridPane root = new GridPane();
+		Scene scene = new Scene(root, 600, 600);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		primaryStage.setScene(scene);
+		//GenerarLaberintoGrafico();
+		//root.getChildren().add(tableroGrafico);
+		primaryStage.show();
+		
+		
+	}
+
+//	private void GenerarLaberintoGrafico() {
+//		for (int i = 0; i < tableroVirtual.DevolverCantidadFilasTablero(); i++) {
+//			for (int j = 0; j < tableroVirtual.DevolverCantidadColumnasTablero(); j++) {
+//
+//				tableroGrafico[i][j] = new Label();
+//				//add(tableroGrafico[i][j]);
+//				 Image image = new Image(getClass().getResourceAsStream("imagenes/"+ tableroVirtual.DevolverCodigoImagenMatriz(i, j) + ".gif"));
+//				tableroGrafico[i][j].setGraphic(new ImageView(image));
+//			}
+//		}
+//		for (int i = 0; i < tableroVirtual.DevolverCantidadFilasTablero(); i++) {
+//			for (int j = 0; j < tableroVirtual.DevolverCantidadColumnasTablero(); j++) {
+//
+//				tableroGrafico[i][j].setBounds(i * tableroVirtual.DevolverLargoImagenes(),
+//						j * tableroVirtual.DevolverAlturaImagenes(), tableroVirtual.DevolverLargoImagenes(),
+//						tableroVirtual.DevolverAlturaImagenes());
+//
+//				tableroGrafico[i][j].validate();
+//			}
+//		}
+//	}
+
+}

@@ -1,0 +1,7 @@
+package application;
+
+public class Moal {
+public static void main(String args[]){
+	//new GeneradorEntorno();
+}
+}

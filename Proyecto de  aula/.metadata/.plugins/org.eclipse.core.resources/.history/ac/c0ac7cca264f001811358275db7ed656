@@ -1,0 +1,45 @@
+package application;
+
+public class Tablero {
+	private final int largoImagenes = 40;
+	private final int AltoImagenes = 40;
+
+	public String tableroActual[][] = {
+			{ "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "SI", "SD" },
+			{ "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "II", "ID" },
+			{ "F", "F", "F", "M", "M", "M", "M", "F", "M", "M", "M", "M", "M", "M", "M" },
+			{ "M", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F" },
+			{ "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F" },
+
+			{ "M", "M", "M", "F", "F", "F", "F", "F", "F", "M", "M", "M", "F", "F", "F" },
+			{ "F", "F", "F", "F", "F", "F", "F", "M", "M", "F", "F", "F", "F", "F", "F" },
+			{ "F", "F", "M", "M", "M", "M", "F", "F", "F", "F", "F", "F", "F", "F", "F" },
+			{ "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "C", "M", "M" },
+			{ "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "C", "F", "C", "F", "F" },
+
+			{ "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "C", "F", "C", "F", "F" },
+			{ "F", "F", "F", "F", "F", "F", "C", "F", "C", "F", "C", "F", "C", "F", "F" },
+			{ "F", "F", "F", "F", "C", "F", "C", "F", "C", "F", "C", "F", "C", "F", "F" },
+			{ "F", "F", "C", "F", "C", "F", "C", "F", "C", "F", "C", "F", "C", "F", "F" },
+			{ "H", "H", "H", "H", "H", "H", "H", "H", "H", "H", "H", "H", "H", "H", "H" }, };
+
+	public int DevolverLargoImagenes() {
+		return largoImagenes;
+	}
+
+	public int DevolverAlturaImagenes() {
+		return AltoImagenes;
+	}
+
+	public int DevolverCantidadFilasTablero() {
+		return tableroActual.length;
+	}
+
+	public int DevolverCantidadColumnasTablero() {
+		return tableroActual[0].length;
+	}
+
+	public String DevolverCodigoImagenMatriz(int fila, int columna) {
+		return tableroActual[fila][columna];
+	}
+}
